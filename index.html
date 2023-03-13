@@ -7,12 +7,18 @@
     <title>TicTacToe</title>
   </head>
   <body>
-    <div class="flex justify-center">
+    <div class="flex flex-col items-center justify-center">
       <p class="text-center" id="current-player"></p>
       <div
         id="grid-container"
         class="grid grid-cols-3 w-[600px] h-[600px] border border-black"
       ></div>
+      <button
+        id="reset-button"
+        class="bg-purple-500 text-white rounded-md hover:bg-purple-800 w-24 h-8 m-8"
+      >
+        RESET
+      </button>
     </div>
 
     <script type="module" src="/src/main.ts"></script>
