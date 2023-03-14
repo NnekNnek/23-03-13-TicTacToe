@@ -102,7 +102,7 @@ const gridSize = 3
 const gameGrid = document.getElementById("grid-container");
 
 // 4. GRID STYLING
-const gridCellStyling = ["h-[200px]", "w-[200px]", "border", "border-black"];
+const gridCellStyling = ["h-[200px]", "w-[200px]", "border-2", "border-purple-400"];
 // cell.classList.add("h-[200px]"), ...
 // cell.classList.add("border"), ...
 
@@ -200,7 +200,7 @@ function didIWin(){
 
 // 15. DISPLAY A CONGRATS-MESSAGE
 function displayWinner (){
-    currentPlayerElement.textContent = `CONGRACTS ${players[turn].name}, you've won :)`
+    currentPlayerElement.textContent = `CONGRATS ${players[turn].name}, you've won :)`
 }
 
 
