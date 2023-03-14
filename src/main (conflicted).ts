@@ -68,9 +68,11 @@ function makeGrid(){
             // append child (each single square) to the dom
             gameGrid?.appendChild(cell);
 
-            // 18b. DISPLAY SCORE
-            display1.textContent = `Score of ${players[0].name}: ${scoreP1}`;
-            display2.textContent = `Score of ${players[1].name}: ${scoreP2}`;
+            // 18. DISPLAY SCORE
+            const display1 = document.getElementById("player1");
+            display1.textContent = `Score of ${players[0].name}: ${players[0].score}`;
+            const display2 = document.getElementById("player2");
+            display2.textContent = `Score of ${players[1].name}: ${players[1].score}`;
             
 
 
@@ -101,7 +103,6 @@ function makeGrid(){
                             if (turn == 0){
                                 newScore(scoreP1)
                             } else {newScore(scoreP2)};
-                            console.log(newScore(2))
 
                             return
                         }
@@ -252,25 +253,21 @@ resetButton?.addEventListener("click", resetGrid);
 // keep the score after resetbutton
 
 
-// 18b. DISPLAY SCORE
-// grab players from the dom and bind them
-const display1 = document.getElementById("player1");
-const display2 = document.getElementById("player2");
 
 // 19a. ADD 1 TO SCORE
 // binding each players score in a let
 let scoreP1 = players[0].score;
-let scoreP2 = players[1].score;
+let scoreP2 = players[1].score ;
 
 // 19b. ADD 1 TO SCORE
 function newScore (scoreX:number){
     return scoreX + 1;
 };
 
-function displayScore(){
-
-}
+function displayS
 
 console.log(newScore(scoreP1))
+
+console.log(newScore(players[turn].score));
 
 makeGrid();

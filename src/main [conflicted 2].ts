@@ -68,12 +68,6 @@ function makeGrid(){
             // append child (each single square) to the dom
             gameGrid?.appendChild(cell);
 
-            // 18b. DISPLAY SCORE
-            display1.textContent = `Score of ${players[0].name}: ${scoreP1}`;
-            display2.textContent = `Score of ${players[1].name}: ${scoreP2}`;
-            
-
-
             cell.addEventListener("click", (event) => {
                 if (!gameEndState){
                     // whose turn if game is not completed
@@ -97,12 +91,6 @@ function makeGrid(){
                             // if it equals to true, then...
                             displayWinner();
                             gameEndState = true;
-                            
-                            if (turn == 0){
-                                newScore(scoreP1)
-                            } else {newScore(scoreP2)};
-                            console.log(newScore(2))
-
                             return
                         }
 
@@ -244,33 +232,20 @@ function resetGrid(){
 // 17. RESET BUTTON
 resetButton?.addEventListener("click", resetGrid);
 
+// 18. ANNOUNCE SCORE
+// have score displayed 
+console.log(players[1].score)
+document.getElementById("player1")
 
+    
 
-// after a win, define winner
-// to the winners score add 1
-// save the new score
-// keep the score after resetbutton
+// 19. ADD SCORE
+// store new score in const
+// display score on div
+// when winning, add 1 to score 
 
-
-// 18b. DISPLAY SCORE
-// grab players from the dom and bind them
-const display1 = document.getElementById("player1");
-const display2 = document.getElementById("player2");
-
-// 19a. ADD 1 TO SCORE
-// binding each players score in a let
-let scoreP1 = players[0].score;
-let scoreP2 = players[1].score;
-
-// 19b. ADD 1 TO SCORE
-function newScore (scoreX:number){
-    return scoreX + 1;
-};
-
-function displayScore(){
+function add1(){
 
 }
-
-console.log(newScore(scoreP1))
 
 makeGrid();
