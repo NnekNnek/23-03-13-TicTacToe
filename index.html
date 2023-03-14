@@ -6,20 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TicTacToe</title>
   </head>
-  <body>
+  <body class="bg-green-200">
     <div class="flex flex-col items-center justify-center">
-      <h2 class="text-3xl m-8 font-mono text-orange-500 font-extrabold">T I C - T A C - T O E</h2>
-      <p class="text-center mb-4 font-mono text-yellow-500" id="current-player"></p>
+      <h2 class="text-3xl m-8 font-mono text-orange-500 font-extrabold">
+        T I C - T A C - T O E
+      </h2>
+      <p
+        class="text-center mb-4 font-mono text-yellow-500"
+        id="current-player"></p>
       <div
         id="grid-container"
-        class="grid grid-cols-3 w-[600px] h-[600px] border border-black"
-      ></div>
-      <button
-        id="reset-button"
-        class="bg-purple-500 text-white rounded-md hover:bg-purple-800 w-24 h-8 m-8"
-      >
-        RESET
-      </button>
+        class="grid grid-cols-3 w-[600px] h-[600px] border border-black"></div>
+      <div class="flex justify-around">
+        <div
+          id="player1"
+          class="text-center bg-white min-w-[200px] max-h-[80px] rounded-md m-2"></div>
+        <button
+          id="reset-button"
+          class="bg-purple-500 text-white rounded-md hover:bg-purple-800 w-24 h-8 m-8">
+          RESET
+        </button>
+        <div
+          id="player2"
+          class="text-center bg-white min-w-[200px] max-h-[80px] rounded-md m-2"></div>
+      </div>
     </div>
 
     <script type="module" src="/src/main.ts"></script>

@@ -22,6 +22,19 @@ type CellState = {
     element: Element;
 }
 
+
+// 2. GRID SIZE (so it can be changed later to 4x4 i.e.)
+const gridSize = 3
+
+// 3. GRAB #grid-container FROM DOM
+const gameGrid = document.getElementById("grid-container");
+
+// 4. GRID STYLING
+const gridCellStyling = ["h-[200px]", "w-[200px]", "border-2", "border-purple-400"];
+// cell.classList.add("h-[200px]"), ...
+// cell.classList.add("border"), ...
+
+
 // 1. FUNCTION WITH LOOP TO CREATE CELLS AND MAKING THE CELLS CLICKABLE
 function makeGrid(){
     for (let row = 0; row < gridSize; row++){
@@ -95,17 +108,6 @@ function makeGrid(){
     }
 };
 
-// 2. GRID SIZE (so it can be changed later to 4x4 i.e.)
-const gridSize = 3
-
-// 3. GRAB #grid-container FROM DOM
-const gameGrid = document.getElementById("grid-container");
-
-// 4. GRID STYLING
-const gridCellStyling = ["h-[200px]", "w-[200px]", "border-2", "border-purple-400"];
-// cell.classList.add("h-[200px]"), ...
-// cell.classList.add("border"), ...
-
 
 // 8A. UTILITY FUNCTION TO KEEP TRACK
 function coordtoId(coord: Coordinates): string {
@@ -132,7 +134,7 @@ const currentPlayerElement = document.getElementById("current-player") as Elemen
 
 
 // 10. GRAB reset-button FROM DOM
-const resetButton =document.getElementById("reset-button")
+const resetButton = document.getElementById("reset-button")
 
 
 // 11. MAKE PLAYERS
@@ -191,6 +193,10 @@ function didIWin(){
 
         if (winner){
             // defined in the const above
+            cell1.element.classList.add("bg-pink-300");
+            cell2.element.classList.add("bg-pink-300");
+            cell3.element.classList.add("bg-pink-300");
+            
             return true
         }
     } 
@@ -200,7 +206,8 @@ function didIWin(){
 
 // 15. DISPLAY A CONGRATS-MESSAGE
 function displayWinner (){
-    currentPlayerElement.textContent = `CONGRATS ${players[turn].name}, you've won :)`
+    currentPlayerElement.textContent = `CONGRATS ${players[turn].name}, you've won :)`;
+    currentPlayerElement.classList.add("text-4xl");
 }
 
 
@@ -215,12 +222,32 @@ function resetGrid(){
     // setting it back to the beginning
     gameEndState = false;
     turn = 0;
-    gameState = {}
-    currentPlayerElement.textContent = `The current player is ${players[0].name}`
+    gameState = {};
+    currentPlayerElement.textContent = `The current player is ${players[0].name}`;
+    currentPlayerElement.classList.add("text-base");
     
     makeGrid();
 }
 
+// 17. RESET BUTTON
 resetButton?.addEventListener("click", resetGrid);
+
+// 18. ANNOUNCE SCORE
+// have score displayed 
+const display1 = document.getElementById("player1");
+display1.textContent = `Score of ${players[0].name}: ${players[0].score}`;
+const display2 = document.getElementById("player2");
+display2.textContent = `Score of ${players[1].name}: ${players[1].score}`;
+
+    
+
+// 19. ADD SCORE
+// store new score in const
+// display score on div
+// when winning, add 1 to score 
+
+function add1(){
+
+}
 
 makeGrid();
